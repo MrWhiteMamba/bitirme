@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
 
-    SharedPreferences mPrefs;
+  //  SharedPreferences mPrefs;
 
     private EditText editTextUserName;
     private EditText editTextUserPassword;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mPrefs = getPreferences(MODE_PRIVATE);
+       // mPrefs = getPreferences(MODE_PRIVATE);
         editTextUserName = (EditText)findViewById(R.id.editTextUserName);
         editTextUserPassword = (EditText)findViewById(R.id.editTextUserPassword);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
@@ -83,15 +83,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete( Task<AuthResult> task) {
                         if(task.isSuccessful()){
-/*
-                            MyObject myObject = new MyObject;
-//set variables of 'myObject', etc.
-
-                            Editor prefsEditor = mPrefs.edit();
-                            Gson gson = new Gson();
-                            String json = gson.toJson(myObject);
-                            prefsEditor.putString("MyObject", json);
-                            prefsEditor.commit();*/
                             Intent i = new Intent(MainActivity.this,Secim.class);
                             startActivity(i);
                             finish();

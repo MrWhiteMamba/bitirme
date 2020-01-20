@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 //import android.widget.Toast;
 
@@ -34,14 +33,6 @@ public class DersSecim extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-/*
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Dersler").child("ders").child("aktifogrenciler");
-        myRef.setValue("serkan");*/
-
-
-
         setContentView(R.layout.activity_ders_secim);
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Dersler");
         mDatabase.keepSynced(true);
@@ -59,38 +50,26 @@ public class DersSecim extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull FirebaseViewHolder holder, int position, @NonNull Blog model) {
 
                 holder.ders.setText(model.getDers());
-                holder.derskodu.setText(model.getDerskodu().toString());
-                //final String qrcodevalue = model.getQrcodevalue().toString();
-                //holder.qrcodevalue.setText(model.getQrcodevalue().toString());
-                //Picasso.get().load(model.getImage()).into(holder.image);
-               // final Integer id = model.getId();
+                holder.derskodu.setText(model.getDerskodu());
+
+                // final Integer id = model.getId();
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view){
 
-                                Intent intent = new Intent(DersSecim.this,Scanner.class);
-                                startActivity(intent);
-                        }
+                        Intent intent = new Intent(DersSecim.this,Scanner.class);
+                        startActivity(intent);
+                    }
 
                 });
 
             }
 
-//            String gelenYazi=getIntent().getExtras().getString("veri");
-
-            /*if(gelenYazi == qrcodevalue){
-                Toast.makeText(getApplicationContext(),"Derse Kaydiniz Alinmistir",Toast.LENGTH_LONG).show();
-                // burdan sonra firebase'e kisinin derse kaydini gerceklestiricez
-            }
-            else if{
-                Toast.makeText(getApplicationContext(),"Derse Kaydiniz Basarisiz!",Toast.LENGTH_LONG).show();
- }
-*/
 
 
 
 
-
+            // if(currentScanData.equal(lessonScanData))
             @NonNull
             @Override
             public FirebaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

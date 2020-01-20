@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecimActivity"
+    tools:context=".Secim"
     android:background="#90caf9">
 
     <Button
@@ -16,7 +16,8 @@
         android:textAllCaps="false"
         android:textColor="#fff"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="341dp" />
+        tools:layout_editor_absoluteY="341dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button"
